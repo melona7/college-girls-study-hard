@@ -2,7 +2,11 @@ $(window).on('focus', function () {
     console.log("hello");
 });
 
+var died;
 $(window).on('blur', function () {
-    console.log("nani");
-    $("#main").append("<div id='dead'><em>your tree dead bro</em></div>");
+    if(!died){
+        console.log("nani");
+        died = true;
+        $("#main").append("<div id='dead'><em>your tree dead bro</em></div>");
+    }
 });
