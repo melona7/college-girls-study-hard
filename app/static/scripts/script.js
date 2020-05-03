@@ -74,7 +74,7 @@ var vue = new Vue({
             if (newDead != self.dead) {
               console.log("asdfghjkW", newDead, self.dead);
               clearInterval(itsalive);
-              itsalive = setInterval(function(){ this.treealive();}.bind(this), 30000);
+              itsalive = setInterval(function(){ self.treealive();}.bind(self), 30000);
               self.treeb();
              
     
