@@ -43,7 +43,7 @@ var vue = new Vue({
           })
 
       },
-      check() {
+      checkUsers() {
         let self = this;
 
         axios
@@ -61,6 +61,26 @@ var vue = new Vue({
           })
 
       },
+      /** 
+      checkDead() {
+        let self = this;
+
+        axios
+          .get("/api/trees/dead")
+          .then(function(response){
+          
+            let newDead = response.data.people;
+            let no = newPeople.length;
+            if (no != self.users) {
+              console.log("WUWWJWUWIW", no, self.users);
+              self.usersonline();
+             
+    
+            }
+          })
+
+      },*/
+
       treedie() {
         let self = this;
         self.dead += 1;
@@ -124,7 +144,7 @@ var vue = new Vue({
     },
     
     created: function () {
-        setInterval(function(){ this.check();}.bind(this), 300);
+        setInterval(function(){ this.checkUsers();}.bind(this), 300);
         setInterval(function(){ this.treealive();}.bind(this), 30000);
 
   

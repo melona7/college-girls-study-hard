@@ -5,31 +5,33 @@
         <meta charset="utf-8">
 
         <title>very cool</title>
-    
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css')}}" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Quicksand&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         
-
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css')}}">
+        
 
 
 
     </head>
-
+    <div class="bg">
     <body>
-        <div id ="main">
+        <div class="header">Virtual Library</div>
+        <div id ="main"><div class="container">
             <div>
                 Alive: [[alive]]
-                Dead: [[dead]]
+                Dead: [[dead]]<br><br>
             </div>
-            
+            <div class="h2">Users Online:</div>
             <div v-for ="people in thing">
                 [[people]]
-            </div>
+            </div></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         </div>
     
