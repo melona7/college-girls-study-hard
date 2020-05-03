@@ -3,7 +3,11 @@ CREATE TABLE users(
 	PRIMARY KEY(username)
 );
 
-CREATE TABLE trees (
-    tree BIT NOT NULL,
-    PRIMARY KEY(tree)
+CREATE TABLE rooms (
+    room VARCHAR(20) NOT NULL,
+	numAlive INTEGER NOT NULL,
+	numDead INTEGER NOT NULL,
+    PRIMARY KEY(room)
 );
+
+

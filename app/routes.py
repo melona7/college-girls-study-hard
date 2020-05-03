@@ -17,7 +17,7 @@ def login():
         query2 = """SELECT * FROM users"""
         cursor.execute(query2)
 
-        data = cursor.fetchall();
+        data = cursor.fetchall()
 
         for i in data:
             print(i)
@@ -32,10 +32,24 @@ def login():
 def index():
      return flask.render_template('index.html')
 
-    
+@app.route('/api/usersonline', methods=['GET', 'POST', 'DELETE'])
+def getUsers():
+    var = {}
+    db = get_db()
+    cursor = db.cursor()
+    query = "SELECT username FROM users"
+    exCursor = cursor.execute(query)
+    data = exCursor.fetchall()
 
-    
+    print(data)
 
+    peopleList = []
+    for d in data:
+        peopleList.append(d)
+
+    var["people"] = peopleList
+    
+    return flask.jsonify(**var)
 
 DATABASE_FILENAME = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
 'var', 'study.sqlite3')
