@@ -1,3 +1,3 @@
-INSERT INTO users (username, fullname, email)
+INSERT INTO users (username)
 VALUES 
-  ("bilybob", "billy bob", "bilbob@umich.edu");
+  ("bilybob");
