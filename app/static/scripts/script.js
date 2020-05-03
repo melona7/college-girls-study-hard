@@ -42,7 +42,8 @@ var vue = new Vue({
       },
     
     created: function () {
-        $(window).on('blur', function () {
+      setInterval(function(){ this.usersonline();}.bind(this), 300);
+      $(window).on('blur', function () {
             if(!died){
                 console.log("nani");
                 died = true;

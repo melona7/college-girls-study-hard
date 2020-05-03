@@ -51,6 +51,26 @@ def getUsers():
     
     return flask.jsonify(**var)
 
+@app.route('/api/trees', methods=['GET', 'POST'])
+def trees():
+    var = {}
+    db = get_db()
+    cursor = db.cursor()
+    query = "SELECT * FROM rooms"
+    exCursor = cursor.execute(query)
+    data = exCursor.fetchall()
+    for element in data:
+        var["rooms"] = element
+    print(data)
+
+    # peopleList = []
+    # for d in data:
+    #     peopleList.append(d)
+
+    # var["people"] = peopleList
+    
+    return flask.jsonify(**var)
+
 @app.template_filter()
 def vue(item):
     # If you see anything about "raw", blame the blog engine, not me. If not,

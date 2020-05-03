@@ -38,7 +38,7 @@ case $1 in
 
   "dump")
     sqlite3 -batch -line var/study.sqlite3 'SELECT * FROM users'
-    sqlite3 -batch -line var/study.sqlite3 'SELECT * FROM trees'
+    sqlite3 -batch -line var/study.sqlite3 'SELECT * FROM rooms'
 
     ;;
   *)
