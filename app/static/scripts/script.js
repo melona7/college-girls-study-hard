@@ -12,6 +12,7 @@
 // });
 
 var died = false;
+var itsalive;
 var vue = new Vue({
     delimiters: ['[[',']]'],
     el: '#main',
@@ -30,16 +31,16 @@ var vue = new Vue({
         axios
           .get("/api/usersonline")
           .then(function(response){
-            console.log(response);
+            //console.log(response);
             let newPeople = response.data.people;
-            console.log(newPeople);
+            //console.log(newPeople);
             self.users = newPeople.length;
 
             for (person in newPeople){
               self.thing.push(newPeople[person]["username"]);
-              console.log(person);
+              //console.log(person);
             }
-            console.log(self.thing);
+            //console.log(self.thing);
           })
 
       },
@@ -61,7 +62,7 @@ var vue = new Vue({
           })
 
       },
-      /** 
+      
       checkDead() {
         let self = this;
 
@@ -69,17 +70,18 @@ var vue = new Vue({
           .get("/api/trees/dead")
           .then(function(response){
           
-            let newDead = response.data.people;
-            let no = newPeople.length;
-            if (no != self.users) {
-              console.log("WUWWJWUWIW", no, self.users);
-              self.usersonline();
+            let newDead = response.data.rooms.numDead;
+            if (newDead != self.dead) {
+              console.log("asdfghjkW", newDead, self.dead);
+              clearInterval(itsalive);
+              itsalive = setInterval(function(){ this.treealive();}.bind(this), 30000);
+              self.treeb();
              
     
             }
           })
 
-      },*/
+      },
 
       treedie() {
         let self = this;
@@ -99,9 +101,9 @@ var vue = new Vue({
         axios
           .get("/api/trees/alive")
           .then(function(response){
-            console.log(response);
+            //console.log(response);
             let rooms = response.data.rooms;
-            console.log(rooms);
+            //console.log(rooms);
 
            
             self.alive = rooms.numAlive;
@@ -116,13 +118,13 @@ var vue = new Vue({
         axios
           .get("/api/trees/dead")
           .then(function(response){
-            console.log(response);
+            //console.log(response);
             let rooms = response.data.rooms;
-            console.log(rooms);
+            //console.log(rooms);
 
             
             self.dead = rooms.numDead;
-            console.log("dead", self.dead);
+            //console.log("dead", self.dead);
     
             
     
@@ -145,8 +147,8 @@ var vue = new Vue({
     
     created: function () {
         setInterval(function(){ this.checkUsers();}.bind(this), 300);
-        setInterval(function(){ this.treealive();}.bind(this), 30000);
-
+        setInterval(function(){ this.checkDead();}.bind(this), 300);
+        itsalive = setInterval(function(){ this.treealive();}.bind(this), 30000);
   
 
         self = this;
@@ -159,7 +161,6 @@ var vue = new Vue({
 
         $(window).on('blur', function () {
             self.treedie();
-            self.treeb();
 
             if(!died){
                 console.log("nani");

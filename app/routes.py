@@ -42,7 +42,7 @@ def getUsers():
     exCursor = cursor.execute(query)
     data = exCursor.fetchall()
 
-    print(data)
+    #print(data)
 
     peopleList = []
     for d in data:
@@ -62,7 +62,7 @@ def trees():
     data = exCursor.fetchall()
     for element in data:
         var["rooms"] = element
-    print(data)
+    #print(data)
 
     if flask.request.method == 'POST':
 
@@ -70,7 +70,7 @@ def trees():
         exCursor = cursor.execute(query, ("0"))
         data = exCursor.fetchall()[0]['numAlive'] + 1
 
-        print("hiii", data)
+        print("ALIVEEEEEEEEEEEEEEEEEEEEEEE", data)
 
 
         
@@ -95,7 +95,7 @@ def treesdead():
     data = exCursor.fetchall()
     for element in data:
         var["rooms"] = element
-    print(data)
+    #print(data)
 
     if flask.request.method == 'POST':
 
@@ -103,7 +103,7 @@ def treesdead():
         exCursor = cursor.execute(query, ("0"))
         data = exCursor.fetchall()[0]['numDead'] + 1
 
-        print("hiii", data)
+        print("deeeeeeeeeeeeeAAAAAAAAAAAD", data)
 
 
         
