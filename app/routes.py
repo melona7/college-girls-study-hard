@@ -51,6 +51,14 @@ def getUsers():
     
     return flask.jsonify(**var)
 
+@app.template_filter()
+def vue(item):
+    # If you see anything about "raw", blame the blog engine, not me. If not,
+    # ignore these comments.
+    print("HELOOOOOOO")
+    return "{{ " + item + " }}"
+
+
 DATABASE_FILENAME = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
 'var', 'study.sqlite3')
 

@@ -6,11 +6,13 @@
 
         <title>very cool</title>
     
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-        <script src="{{ url_for('static', filename='scripts/script.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        
+
 
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css')}}">
 
@@ -20,11 +22,12 @@
 
     <body>
         <div id ="main">
-            <div v-for ="n in 3">
-                hello world
+            <div v-for ="people in thing">
+                [[people]]
             </div>
 
         </div>
-        
+    
+        <script src="{{ url_for('static', filename='scripts/script.js')}}"></script>
     </body>
 </html>
