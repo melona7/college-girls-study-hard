@@ -25,6 +25,15 @@
     color: #f0f3bd;
 }
 
+.header-login {
+	padding: 120px 0px 0px 0px;
+    margin: 0px 10px;
+    font-family: 'Molle', cursive;
+    text-align: center;
+    font-size: 40px;
+    color: #2a9d8f;
+}
+
 .container {
 	padding: 100px 75px 100px 75px;
     margin: 0px 400px;
@@ -42,4 +51,29 @@
 
 .container .h2 {
     font-family: 'Molle', cursive;
+    font-size: 20px;
+}
+
+.container2 {
+    background: url(https://images.unsplash.com/photo-1542351366-d8d0560af4d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80);
+	padding: 100px 75px 100px 75px;
+    margin: 0px 400px;
+    text-align: center;
+    background-color: #d8e2dc;
+    opacity: 0.8;
+    font-family: 'Quicksand', sans-serif;
+	line-height: 30px;
+    font-size: 16px;
+    color: #003049;
+}
+
+input {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 0px solid #2a9d8f;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
 }
