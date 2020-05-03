@@ -165,7 +165,7 @@ var vue = new Vue({
             if(!died){
                 console.log("nani");
                 died = true;
-                $("#main").append("<div id='dead'><em>your tree dead bro</em></div>");
+                $("#header2").append("<div id='dead' class='kill'><b>You killed a plant! <br>Stay focused next time!</b></div>");
 
             }
         });

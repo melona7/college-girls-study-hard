@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>very cool</title>
+        <title>Leafy</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css')}}" type="text/css">
-        <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         
@@ -21,11 +21,11 @@
     </head>
     <div class="bg">
     <body>
-        <div class="header">Virtual Library</div>
+        <div id ="header2" class="header">Leafy</div>
         <div id ="main"><div class="container">
             <div>
-                Alive: [[alive]]
-                Dead: [[dead]]<br><br>
+                Plants Grown: [[alive]]<br>
+                Plants Killed: [[dead]]<br><br>
             </div>
             <div class="h2">Currently Studying:</div>
             <div v-for ="people in thing">
