@@ -2,6 +2,7 @@ from app import app
 import flask
 import sqlite3
 import os
+from flask import request
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -51,7 +52,7 @@ def getUsers():
     
     return flask.jsonify(**var)
 
-@app.route('/api/trees', methods=['GET', 'POST'])
+@app.route('/api/trees/alive', methods=['GET', 'POST'])
 def trees():
     var = {}
     db = get_db()
@@ -62,6 +63,63 @@ def trees():
     for element in data:
         var["rooms"] = element
     print(data)
+
+    if flask.request.method == 'POST':
+
+        query = "SELECT numAlive FROM rooms WHERE room = (?)"
+        exCursor = cursor.execute(query, ("0"))
+        data = exCursor.fetchall()[0]['numAlive'] + 1
+
+        print("hiii", data)
+
+
+        
+        query = """UPDATE rooms
+              SET numAlive = ?
+              WHERE room = ?"""
+
+
+        
+
+        cursor.execute(query, (data, "0"))
+    
+    return flask.jsonify(**var)
+
+@app.route('/api/trees/dead', methods=['GET', 'POST'])
+def treesdead():
+    var = {}
+    db = get_db()
+    cursor = db.cursor()
+    query = "SELECT * FROM rooms"
+    exCursor = cursor.execute(query)
+    data = exCursor.fetchall()
+    for element in data:
+        var["rooms"] = element
+    print(data)
+
+    if flask.request.method == 'POST':
+
+        query = "SELECT numDead FROM rooms WHERE room = (?)"
+        exCursor = cursor.execute(query, ("0"))
+        data = exCursor.fetchall()[0]['numDead'] + 1
+
+        print("hiii", data)
+
+
+        
+        query = """UPDATE rooms
+              SET numDead = ?
+              WHERE room = ?"""
+
+
+        
+
+        cursor.execute(query, (data, "0"))
+
+
+    
+    
+
 
     # peopleList = []
     # for d in data:
